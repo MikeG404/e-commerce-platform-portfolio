@@ -1,12 +1,20 @@
 import './App.css'
-import SignInForm from './components/sign-in-form.component'
+import { Routes, Route } from 'react-router'
+
+import Home from './routes/home.component'
+import Shop from './routes/shop.component'
+
+import Navigation from './components/navigation.component'
 
 function App() {
   
   return (
-    <>
-      <SignInForm />
-    </>
+      <Routes>
+        <Route path='/' element={<Navigation />}>
+          <Route index element={<Home />}></Route>
+          <Route path='/shop' element={<Shop />}></Route>
+        </Route>
+      </Routes>
   )
 }
 
