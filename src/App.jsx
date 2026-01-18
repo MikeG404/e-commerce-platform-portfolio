@@ -1,10 +1,10 @@
-import './App.css'
+import './App.scss'
 import { Routes, Route } from 'react-router'
 
 import Home from './routes/home.component'
 import Shop from './routes/shop.component'
 
-import Navigation from './components/navigation.component'
+import Navigation from './components/navigation/navigation.component'
 
 function App() {
   
