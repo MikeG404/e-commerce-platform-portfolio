@@ -1,6 +1,10 @@
 import { initializeApp } from "firebase/app";
 
-import { getAuth, signInWithPopup, GoogleAuthProvider  } from "firebase/auth";
+import { 
+    getAuth, 
+    signInWithPopup, 
+    GoogleAuthProvider,
+} from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -33,6 +37,7 @@ export const googleSignInWithPopup = async () => {
 const addUserInDocument = async (uid, displayName, email) => {
     await setDoc(doc(db, "users", uid), {
         displayName,
-        email 
+        email,
+        createdAt: Date.now()
     })
 }
