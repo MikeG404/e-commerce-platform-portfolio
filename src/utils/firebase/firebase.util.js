@@ -4,6 +4,8 @@ import {
     getAuth, 
     signInWithPopup, 
     GoogleAuthProvider,
+    onAuthStateChanged,
+    signOut,
 } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 
@@ -22,7 +24,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
-const auth = getAuth();
+export const auth = getAuth();
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
 
 export const googleSignInWithPopup = async () => {
     try {
@@ -32,6 +36,10 @@ export const googleSignInWithPopup = async () => {
     } catch (error) {
         throw new Error(`Code: ${error.code} - ${error.message}`);
     }
+}
+
+export const logOut = async () => {
+    return signOut(auth);
 }
 
 const addUserInDocument = async (uid, displayName, email) => {

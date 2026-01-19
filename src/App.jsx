@@ -1,12 +1,34 @@
-import './App.scss'
-import { Routes, Route } from 'react-router'
+import './App.scss';
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 
-import Home from './routes/home.component'
-import Shop from './routes/shop.component'
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './utils/firebase/firebase.util';
 
-import Navigation from './components/navigation/navigation.component'
+import Home from './routes/home.component';
+import Shop from './routes/shop.component';
+import Navigation from './components/navigation/navigation.component';
+
+import { setCurrentUser } from './store/auth-slice/auth.slice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setCurrentUser({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName
+        }));
+      } else {
+        dispatch(setCurrentUser(null));
+      }
+    })
+    return unsubscribe;
+  }, []);
   
   return (
       <Routes>

@@ -1,10 +1,18 @@
 import './navigation.styles.scss';
+
 import { Fragment } from "react";
 import { Link, Outlet } from "react-router";
+import { useSelector } from 'react-redux';
 import { FaShop } from "react-icons/fa6";
+
+import { googleSignInWithPopup, logOut } from '../../utils/firebase/firebase.util';
 
 
 const Navigation = () => {
+    const currentUser = useSelector(state => state.auth.currentUser);
+
+    console.log(currentUser);
+    
 
     return (
         <Fragment>
@@ -16,8 +24,11 @@ const Navigation = () => {
                 </div>
                 <div className="links-container">
                     <Link className='link' to='/shop'>SHOP</Link>
-                    <button>Sign in</button>
-                </div>
+                    { currentUser 
+                        ? <button onClick={() => logOut()}>Sign Out</button>
+                        : <button onClick={() => googleSignInWithPopup()}>Sign in</button>
+                    }
+                    </div>
             </div>
             <Outlet />
         </Fragment>
