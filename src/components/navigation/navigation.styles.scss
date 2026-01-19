@@ -7,9 +7,15 @@
         flex: 1;
     }
 
-    .links-container {
+    .right-navigation-container {
         display: flex;
+        align-items: center;
         gap: 16px;
+
+        .links-container {
+            display: flex;
+            gap: 16px;
+        }
 
         .link {
             text-decoration: none;
