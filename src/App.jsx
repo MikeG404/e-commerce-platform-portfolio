@@ -8,7 +8,7 @@ import { auth } from './utils/firebase/firebase.util';
 
 import Home from './routes/home.component';
 import Shop from './routes/shop.component';
-import Navigation from './components/navigation/navigation.component';
+import Navigation from './routes/navigation/navigation.component';
 
 import { setCurrentUser } from './store/auth-slice/auth.slice';
 
