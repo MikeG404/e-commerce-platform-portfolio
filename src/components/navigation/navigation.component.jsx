@@ -9,10 +9,7 @@ import { googleSignInWithPopup, logOut } from '../../utils/firebase/firebase.uti
 
 
 const Navigation = () => {
-    const currentUser = useSelector(state => state.auth.currentUser);
-
-    console.log(currentUser);
-    
+    const currentUser = useSelector(state => state.auth.currentUser);    
 
     return (
         <Fragment>

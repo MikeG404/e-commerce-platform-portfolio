@@ -1,7 +1,7 @@
 import './App.scss';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './utils/firebase/firebase.util';
