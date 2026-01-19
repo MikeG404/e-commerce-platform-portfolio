@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './utils/firebase/firebase.util';
 
-import Home from './routes/home.component';
+import Home from './routes/home/home.component';
 import Shop from './routes/shop.component';
 import Navigation from './routes/navigation/navigation.component';
 
