@@ -22,8 +22,8 @@ const Navigation = () => {
                 <div className="links-container">
                     <Link className='link' to='/shop'>SHOP</Link>
                     { currentUser 
-                        ? <button onClick={() => logOut()}>Sign Out</button>
-                        : <button onClick={() => googleSignInWithPopup()}>Sign in</button>
+                        ? <span onClick={() => logOut()}>SIGN OUT</span>
+                        : <span onClick={() => googleSignInWithPopup()}>SIGN IN</span>
                     }
                     </div>
             </div>
