@@ -1,13 +1,29 @@
 import './home.styles.scss';
-import CardCategory from "../../components/card-category/card-category.component";
+import CardCategoriesPreview from '../../components/cards-categories-preview/cards-categories-preview.component';
 
 const Home = () => {
 
+    const categories = [
+        {   
+            id: 1,
+            title: 'Jeans',
+            imageUrl: 'https://www.realsimple.com/thmb/pylBi8okBliW5e5qvCQFWPQatoc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/types-of-denim-GettyImages-598820544-c87ecea4d6454e4a9184a35226c97735.jpg'
+        },
+        {
+            id: 2,
+            title: 'Clothing',
+            imageUrl: 'https://i.etsystatic.com/16895790/r/il/a289d9/4841007885/il_1080xN.4841007885_potp.jpg'
+        },
+        {
+            id: 3,
+            title: 'Books',
+            imageUrl: 'https://i.etsystatic.com/16895790/r/il/a289d9/4841007885/il_1080xN.4841007885_potp.jpg'
+        }
+    ]
+
     return (
         <section className="home-route-container">
-            <CardCategory />
-            <CardCategory />
-            <CardCategory />
+            <CardCategoriesPreview categories={categories} />
         </section>
     )
 }
