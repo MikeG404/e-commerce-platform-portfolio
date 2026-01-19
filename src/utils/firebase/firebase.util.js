@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwmV6LkhLaN8G337qQaKDb_CpyoRYf7JI",
@@ -43,9 +43,14 @@ export const logOut = async () => {
 }
 
 const addUserInDocument = async (uid, displayName, email) => {
-    await setDoc(doc(db, "users", uid), {
-        displayName,
-        email,
-        createdAt: Date.now()
-    })
+    const userRef = doc(db, "users", uid);
+    const userSnapshot = await getDoc(userRef);
+
+    if (!userSnapshot.exists()) {
+        await setDoc(userRef, {
+            displayName,
+            email,
+            createdAt: Date.now()
+        })
+    }
 }
