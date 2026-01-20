@@ -1,6 +1,6 @@
 
 const ProductCard = ({product}) => {
-    const { name, imageURL } = product;
+    const { name, imageURL, price } = product;
 
     return (
         <div className="product-card-container">
@@ -8,7 +8,7 @@ const ProductCard = ({product}) => {
             <div className="product-card-footer">
                 <div className="product-infos">
                     <span className="title">{name}</span>
-                    <span className="price">$30</span>
+                    <span className="price">{price}</span>
                 </div>
                 <button>Add To Cart</button>
             </div>
