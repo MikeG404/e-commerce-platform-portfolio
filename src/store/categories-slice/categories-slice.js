@@ -12,20 +12,20 @@ const categoriesSlice = createSlice({
                 {
                     id: 1,
                     name: 'Blue Skinny Jeans',
-                    imageUrl: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=400',
+                    imageUrl: 'https://zentaro.nl/cdn/shop/files/Spring-Summer-Men-s-Jeans-Ripped-Stretch-cotton-Black-Blue-Slim-Pencil-Pants-Everyday-Casual-Social.jpg_640x640_c6e818d1-772b-4ccb-bdf9-d67a7525860f.webp?v=1741258832&width=3000',
                     price: 30
                 },
                 {
                     id: 2,
                     name: 'Black Ripped Jeans',
-                    imageUrl: 'https://images.unsplash.com/photo-1541099810657-40d6a9270acb?w=400',
+                    imageUrl: 'https://www.fashionnova.com/cdn/shop/products/RippedUpBaggyJeans-Black_mer_3_468x.jpg?v=1651780894',
                     price: 30
 
                 },
                 {
                     id: 3,
                     name: 'Light Wash Straight Jeans',
-                    imageUrl: 'https://images.unsplash.com/photo-1505503693641-c55fb0270d71?w=400',
+                    imageUrl: 'https://lscoglobal.scene7.com/is/image/lscoglobal/28833-1308_M_JEANS_SKINNY?fmt=jpeg&qlt=70&resMode=sharp2&fit=crop,1&op_usm=0.6,0.6,8&wid=1200&hei=1500s',
                     price: 30
                 }
             ]
@@ -63,7 +63,7 @@ const categoriesSlice = createSlice({
                 {
                     id: 1,
                     name: 'Programming Guide',
-                    imageUrl: 'https://images.unsplash.com/photo-150784272343-583f20270319?w=400',
+                    imageUrl: 'https://images.booksense.com/images/298/365/9781651365298.jpg',
                     price: 45
                 },
                 {
