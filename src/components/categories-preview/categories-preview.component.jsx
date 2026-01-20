@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import CardCategory from "../card-category/card-category.component";
+import CategoryCard from "../category-card/category-card.component";
 
 const CardCategoriesPreview = ({categories}) => {
 
     return (
         <Fragment>
             {categories.map((category) => {
-                return <CardCategory key={category.id} category={category}/>
+                return <CategoryCard key={category.id} category={category}/>
             })}
         </Fragment>
     )

@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
-import './card-category.styles.scss';
+import './category-card.styles.scss';
 
-const CardCategory =  ({category}) => {
+const CategoryCard =  ({category}) => {
     const { imageUrl, title} = category;
     
     return (
-        <Link to={`/shop/${title}`} className='card-category-container'>
+        <Link to={`/shop/${title}`} className='category-card-container'>
             <div className='card-container'>
                 <img 
                     className='image' 
@@ -18,4 +18,4 @@ const CardCategory =  ({category}) => {
     )
 }
 
-export default CardCategory;
+export default CategoryCard;

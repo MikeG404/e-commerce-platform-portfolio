@@ -1,5 +1,5 @@
 import './home.styles.scss';
-import CardCategoriesPreview from '../../components/cards-categories-preview/cards-categories-preview.component';
+import CardCategoriesPreview from '../../components/categories-preview/categories-preview.component';
 
 const Home = () => {
 
