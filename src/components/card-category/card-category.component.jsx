@@ -5,7 +5,7 @@ const CardCategory =  ({category}) => {
     const { imageUrl, title} = category;
     
     return (
-        <Link to="/" className='card-category-container'>
+        <Link to={`/shop/${title}`} className='card-category-container'>
             <div className='card-container'>
                 <img 
                     className='image' 

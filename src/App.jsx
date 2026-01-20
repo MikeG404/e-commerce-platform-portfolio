@@ -8,6 +8,7 @@ import { auth } from './utils/firebase/firebase.util';
 
 import Home from './routes/home/home.component';
 import Shop from './routes/shop.component';
+import Category from './routes/category/category.component';
 import Navigation from './routes/navigation/navigation.component';
 
 import { setCurrentUser } from './store/auth-slice/auth.slice';
@@ -28,13 +29,14 @@ function App() {
       }
     })
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
   
   return (
       <Routes>
         <Route path='/' element={<Navigation />}>
-          <Route index element={<Home />}></Route>
-          <Route path='/shop' element={<Shop />}></Route>
+          <Route index element={<Home />} />
+          <Route path='shop' element={<Shop />} />
+          <Route path='shop/:category' element={<Category />} />
         </Route>
       </Routes>
   )
