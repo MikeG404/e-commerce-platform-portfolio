@@ -7,7 +7,15 @@ const cartSlice = createSlice({
         isCartOpen: false
     },
     reducers: {
-        addProductToCart: (state, action) => { state.cartItems.push(action.payload) },
+        addProductToCart: (state, action) => {
+            const existingProduct = state.cartItems.find(product => product.id === action.payload.id);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                state.cartItems.push({ ...action.payload, quantity: 1 })
+            }
+        },
         toggleOpenCart: (state) => { state.isCartOpen = !state.isCartOpen }
     }
 })
