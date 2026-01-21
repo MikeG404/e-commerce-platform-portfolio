@@ -3,13 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
-        cartItems: []
+        cartItems: [],
+        isCartOpen: false
     },
     reducers: {
-        addProductToCart: (state, action) => { state.cartItems.push(action.payload) }
+        addProductToCart: (state, action) => { state.cartItems.push(action.payload) },
+        toggleOpenCart: (state) => { state.isCartOpen = !state.isCartOpen }
     }
 })
 
-export const { addProductToCart } = cartSlice.actions;
+export const { addProductToCart, toggleOpenCart } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
