@@ -1,6 +1,8 @@
 import './cart-preview.styles.scss';
 import { useSelector } from 'react-redux';
 
+import CartItem from '../cart-item/cart-item.component';
+
 const CartPreview = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
 
@@ -9,12 +11,7 @@ const CartPreview = () => {
             <h2>Shopping Cart</h2>
             <ul>
                 {cartItems.map((item) => (
-                    <li key={item.id}>
-                        <img src={item.image} alt={item.name} />
-                        <span>{item.name}</span>
-                        <span>{item.price}</span>
-                        <span>{item.quantity}</span>
-                    </li>
+                    <CartItem key={item.id} item={item} />
                 ))}
             </ul>
         </div>

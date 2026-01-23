@@ -30,15 +30,15 @@ function App() {
     })
     return unsubscribe;
   }, [dispatch]);
-  
+
   return (
-      <Routes>
-        <Route path='/' element={<Navigation />}>
-          <Route index element={<Home />} />
-          <Route path='shop' element={<Shop />} />
-          <Route path='shop/:category' element={<Category />} />
-        </Route>
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='shop/:category' element={<Category />} />
+      </Route>
+    </Routes>
   )
 }
 
