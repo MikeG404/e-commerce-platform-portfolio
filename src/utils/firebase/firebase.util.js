@@ -61,10 +61,15 @@ export const addCategoriesAndDocuments = async (categories) => {
     categories.forEach((category) => {
         const categoryRef = doc(db, 'categories', category.title.toLowerCase());
 
+        const productsWithUniqueIds = category.products.map((product) => ({
+            ...product,
+            id: crypto.randomUUID()
+        }));
+
         batch.set(categoryRef, {
             title: category.title,
             imageUrl: category.imageUrl,
-            products: category.products
+            products: productsWithUniqueIds
         });
     });
 
