@@ -7,7 +7,7 @@ import {
     onAuthStateChanged,
     signOut,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc, writeBatch, collection } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, getDocs, writeBatch, collection } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwmV6LkhLaN8G337qQaKDb_CpyoRYf7JI",
@@ -59,7 +59,6 @@ export const addCategoriesAndDocuments = async (categories) => {
     const batch = writeBatch(db);
 
     categories.forEach((category) => {
-        // Utilise le titre de la catégorie comme ID du document
         const categoryRef = doc(db, 'categories', category.title.toLowerCase());
 
         batch.set(categoryRef, {
@@ -74,5 +73,21 @@ export const addCategoriesAndDocuments = async (categories) => {
         console.log("Success: Toutes les catégories ont été importées !");
     } catch (error) {
         throw new Error(error.message);
+    }
+}
+
+export const getCategories = async () => {
+    try {
+        const categoriesRef = collection(db, "categories");
+        const categoriesSnapshot = await getDocs(categoriesRef);
+
+        const categoriesList = categoriesSnapshot.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id };
+        });
+
+        return categoriesList;
+        
+    } catch (error) {
+        throw new Error(`No categories returned: ${error.message}`);
     }
 }
