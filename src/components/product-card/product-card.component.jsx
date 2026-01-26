@@ -1,6 +1,7 @@
 import "./product-card.styles.scss";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../../store/cart-slice/cart.slice";
+import Button from "../button/button.component";
 
 const ProductCard = ({ product }) => {
     const { name, imageUrl, price } = product;
@@ -20,7 +21,7 @@ const ProductCard = ({ product }) => {
                     <h3 className="title">{name}</h3>
                     <span className="price">${price}</span>
                 </div>
-                <button onClick={handleAddProductToCart}>Add To Cart</button>
+                <Button onClick={handleAddProductToCart}>Add To Cart</Button>
             </div>
         </div>
     )
