@@ -12,6 +12,7 @@ import Category from './routes/category/category.component';
 import Navigation from './routes/navigation/navigation.component';
 
 import { setCurrentUser } from './store/auth-slice/auth.slice';
+import Checkout from './routes/checkout/checkout.component';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='shop' element={<Shop />} />
         <Route path='shop/:category' element={<Category />} />
+        <Route path='checkout' element={<Checkout />}></Route>
       </Route>
     </Routes>
   )

@@ -1,13 +1,21 @@
 import './cart-preview.styles.scss';
 import { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleOpenCart } from '../../store/cart-slice/cart.slice';
 
 import CartItem from '../cart-item/cart-item.component';
 import Button from '../button/button.component';
+import { useNavigate } from 'react-router';
 
 const CartPreview = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
-    console.log(cartItems.length);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleCheckoutRoute = () => {
+        dispatch(toggleOpenCart())
+        navigate("/checkout")
+    };
 
     return (
         <div className="cart-preview-container">
@@ -19,7 +27,7 @@ const CartPreview = () => {
                             <CartItem key={item.id} item={item} />
                         ))}
                     </ul>
-                    <Button>Checkout</Button>
+                    <Button onClick={handleCheckoutRoute}>Checkout</Button>
                 </Fragment>
                 : 
                 <span>No items in cart</span>
