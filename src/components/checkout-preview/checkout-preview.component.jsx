@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 
 const CheckoutPreview = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
-
+    console.log(cartItems);
+    
     return (
         <div className="checkout-preview-container">
             <div className="header-checkout-preview">
@@ -12,7 +13,7 @@ const CheckoutPreview = () => {
                 <span>price</span>
                 <span>Remove</span>
             </div>
-            { cartItems.map(product => {
+            { cartItems.map(product => {                
                 return <CheckoutItem key={product.id} product={product}/>
 
             })}
