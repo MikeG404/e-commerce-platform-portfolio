@@ -10,14 +10,16 @@ const CheckoutItem = ({product}) => {
 
     return (
         <div className='body-checkout-item'>
-            <img className='image' src={imageUrl} alt={name} />
+            <div className='base-infos'>
+                <img className='image' src={imageUrl} alt={name} />
+                <span>{name}</span>
+            </div>
             <span>{price}</span>
             <div>
                 <BiMinusCircle onClick={() => dispatch(decreaseProduct(id))}></BiMinusCircle>
                 <span>{quantity}</span>
                 <BiPlusCircle onClick={() => dispatch(increaseProduct(id))}></BiPlusCircle>
             </div>
-            <span>{name}</span>
             <Button onClick={() => dispatch(removeProductFromCart(id))}>X</Button>
         </div>
     )
