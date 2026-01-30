@@ -1,0 +1,9 @@
+.body-checkout-item {
+    display: flex;
+    justify-content: space-around;
+    
+    padding: 16px;
+    .image {
+        width: 75px;
+    }
+}
